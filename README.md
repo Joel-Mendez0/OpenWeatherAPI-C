@@ -49,4 +49,26 @@ cd Debug
 OpenWeatherAPI.exe
 
 ```
+## Application Overview
 
+This is a simple console-based weather application that allows users to search for the current weather in different cities, save favorite cities, and view the weather for those saved cities. The application interacts with the [OpenWeatherMap API](https://openweathermap.org/) to fetch weather data.
+
+## Features 
+
+### 1. **Search City Weather**
+   - Allows the user to input the name of any city to fetch and display the current weather information.
+
+### 2. **Display Favourite Cities**
+   - Lists all cities saved as favorites, showing either the city name or a message indicating that the slot is empty.
+
+### 3. **Update Favourite Cities**
+   - Users can manage their list of favorite cities:
+     - **Add**: Add a new city to a selected slot.
+     - **Remove**: Remove a city from a selected slot.
+     - **Return to Main Menu**: Exit the editing menu.
+
+### 4. **Display Favourite Cities Weather**
+   - Displays the weather for all cities saved as favorites. For each city in the list, weather data is fetched and shown.
+
+### 5. **Quit**
+   - Exits the application and frees up any memory allocated during the session.
