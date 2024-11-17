@@ -50,12 +50,13 @@ void AddCity(uint32_t Slot);
 void RemoveCity(uint32_t Slot);
 
 // User input prompts
+// Parameters for these functions are passed by referenced to be able to manipulate for the application flow based on user input
 void PromptUserMenu(uint32_t* Selection);
 void PromptUserEdit(uint32_t* Slot, uint32_t* Selection);
 void PromptUserCityWeather(char* City);
 
 // Helper functions
-void ReplaceSpacesWithPlus(char* str);
-void Quit(void);
+void ReplaceSpacesWithPlus(char* str); // Necessary to have places seperate by spaces like New York to be transformed to New+York for the url
+void Quit(void); // Free all memory consumed by the program and exits the application
 
 #endif // WEATHER_APP_H
