@@ -38,7 +38,7 @@ cd OpenWeatherAPI
 mkdir build
 cd build
 ```
-After you are in the build directory, make sure when building the project with CMake to specify the vcpkg toolchain with the appropiate directory (enter this manually)
+After you are in the build directory, make sure when building the project with CMake to specify the vcpkg toolchain with the appropiate directory (enter this manually). If you do not have CMake installed and added to your path, go to https://cmake.org/download/ and install the binaries installer for CMake and continue.
 ```bash
 cmake .. -DCMAKE_TOOLCHAIN_FILE=(Your vcpkg install directory)\vcpkg\scripts\buildsystems\vcpkg.cmake
 cmake --build .
