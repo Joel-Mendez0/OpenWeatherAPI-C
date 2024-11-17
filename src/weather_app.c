@@ -147,7 +147,7 @@ void AddCity(uint32_t Slot)
     }
 
     printf("Input name of City %u: ", Slot);
-    if (scanf_s("%99[^\n]", FavouriteCitiesList[Slot - 1], MaxCityNameLength) != 1) {
+    if (scanf("%99[^\n]", FavouriteCitiesList[Slot - 1]) != 1) {
         printf("\nFailed to Add City\n\n");
         free(FavouriteCitiesList[Slot - 1]);
         FavouriteCitiesList[Slot - 1] = NULL;
@@ -180,7 +180,7 @@ void PromptUserMenu(uint32_t* Selection)
         printf("5. Quit\n");
         printf("\nInput the number corresponding to the action you wish to perform: ");
 
-        if (scanf_s("%u", Selection) == 1 && *Selection >= 1 && *Selection <= 5) {
+        if (scanf("%u", Selection) == 1 && *Selection >= 1 && *Selection <= 5) {
             break;  // Valid input; exit loop
         }
         else {
@@ -196,7 +196,7 @@ void PromptUserEdit(uint32_t* Slot, uint32_t* Selection)
     // Loop for selecting a slot
     while (1) {
         printf("Select City Slot to Edit (1-%d):\n", MaxFavouriteCount);
-        if (scanf_s("%u", Slot) == 1 && *Slot >= 1 && *Slot <= MaxFavouriteCount) {
+        if (scanf("%u", Slot) == 1 && *Slot >= 1 && *Slot <= MaxFavouriteCount) {
             break;  // Valid input; exit loop
         }
         else {
@@ -204,7 +204,7 @@ void PromptUserEdit(uint32_t* Slot, uint32_t* Selection)
             while (getchar() != '\n');  // Clear input buffer
         }
     }
-    while (getchar() != '\n');  // Consume newline left by scanf_s
+    while (getchar() != '\n');  // Consume newline left by scanf
 
     printf("\nYou have selected slot %u\n\n", *Slot);
 
@@ -214,7 +214,7 @@ void PromptUserEdit(uint32_t* Slot, uint32_t* Selection)
         printf("2. Delete\n");
         printf("3. Main Menu\n");
         printf("\nInput the number corresponding to the action you wish to perform: ");
-        if (scanf_s("%u", Selection) == 1 && *Selection >= 1 && *Selection <= 3) {
+        if (scanf("%u", Selection) == 1 && *Selection >= 1 && *Selection <= 3) {
             break;  // Valid input; exit loop
         }
         else {
@@ -222,7 +222,7 @@ void PromptUserEdit(uint32_t* Slot, uint32_t* Selection)
             while (getchar() != '\n');  // Clear input buffer
         }
     }
-    while (getchar() != '\n');  // Consume newline left by scanf_s
+    while (getchar() != '\n');  // Consume newline left by scanf
 }
 
 void PromptUserCityWeather(char* City)
@@ -230,7 +230,7 @@ void PromptUserCityWeather(char* City)
     // Ask user for a city name
     printf("Enter the name of the city to search for weather: ");
 
-    if (scanf_s("%99[^\n]", City, MaxCityNameLength) != 1) {
+    if (scanf("%99[^\n]", City) != 1) {
         printf("Invalid city name. Try again.\n");
 
         while (getchar() != '\n');
