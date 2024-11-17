@@ -10,10 +10,10 @@ cd OpenWeatherAPI
 ```
 ### Linux
 
-On Linux: Install libcurl and CMake using the following commands:
+On Linux: Install libcurl,CMake, and G++ using the following commands:
 ```bash
 sudo apt-get update
-sudo apt-get install libcurl4-openssl-dev cmake
+sudo apt-get install libcurl4-openssl-dev cmake g++
 ```
 After libcurl is installed, you can build and run the program with the following commands:
 ```bash
