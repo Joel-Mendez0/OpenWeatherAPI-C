@@ -1,0 +1,3 @@
+[submodule "Dependencies/curl"]
+	path = Dependencies/curl
+	url = https://github.com/curl/curl.git
