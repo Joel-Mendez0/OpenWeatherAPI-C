@@ -63,25 +63,25 @@ void SearchCityWeatherFavourites(void)
 
 void FetchWeatherData(const char* City, const char* APIkey)
 {
-    CURL* curl;
-    CURLcode res;
+    CURL* curl; // CURL handle for making the HTTP request
+    CURLcode res; // Result of the CURL operation
 
+    // Construct the URL for the weather API request
     char url[256];
     snprintf(url, sizeof(url), "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", City, APIkey);
-
-    printf("http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", City, APIkey);
-
+    
     curl = curl_easy_init();
     if (curl) {
-
+        // Set CURL options: passing in url and write callback function
         curl_easy_setopt(curl, CURLOPT_URL, url);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-
+    
         res = curl_easy_perform(curl);
 
         if (res != CURLE_OK) {
             fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
         }
+        // Free any allocated memory consumed by the CURL* curl
         curl_easy_cleanup(curl);
     }
     printf("\n");
@@ -91,6 +91,7 @@ size_t WriteCallback(void* Ptr, size_t Size, size_t NumElementsBytes, char* Data
 {
     size_t DataLength = Size * NumElementsBytes;
 
+    // Write the received data to stdout
     fwrite(Ptr, Size, NumElementsBytes, stdout);
 
     return DataLength;
